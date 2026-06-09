@@ -4,18 +4,14 @@
 export const profile = {
   name: "Nitesh Kumar",
   role: "Senior Software Engineer",
+  headline:
+    "Building scalable Rails platforms, search systems, and production-ready cloud solutions.",
   tagline:
-    "I build reliable, high-performance backend systems — Ruby on Rails, search platforms, and cloud-native infrastructure on AWS & Kubernetes.",
+    "Senior Software Engineer focused on backend performance, search infrastructure, and reliable cloud-native delivery.",
   summary:
     "Senior software engineer with 9+ years of experience shipping clean, efficient, and maintainable backend systems. I specialize in Ruby on Rails, search infrastructure (OpenSearch), and cloud-native deployments on AWS and Kubernetes. I care about the full development lifecycle — strong test coverage, observability, performance, and keeping production healthy.",
   // Phrases cycled by the hero typing effect.
-  roles: [
-    "Senior Software Engineer",
-    "Ruby on Rails Specialist",
-    "OpenSearch & Search Platforms",
-    "Cloud Native — AWS · K8s · Helm",
-    "SRE / On-call Engineer",
-  ],
+  roles: ["Ruby on Rails", "OpenSearch", "Snowflake", "Kubernetes", "AWS"],
   location: "Zirakpur, Punjab, India",
   email: "me.nkj7@gmail.com",
   phone: "+91-9810354424",
@@ -26,12 +22,32 @@ export const profile = {
   },
 };
 
-// Headline stats shown in the hero / about area.
-export const stats = [
-  { value: "9+", label: "Years of experience" },
-  { value: "6+", label: "Companies & clients" },
-  { value: "Rails", label: "Core specialty" },
-  { value: "24/7", label: "Production support mindset" },
+// Achievement / stat cards. `icon` is resolved to a component in Achievements.jsx.
+export const achievements = [
+  {
+    icon: "spark",
+    value: "5+ Years",
+    title: "Engineering experience",
+    desc: "Shipping and maintaining production Ruby on Rails systems at scale.",
+  },
+  {
+    icon: "search",
+    value: "Search",
+    title: "Platform modernization",
+    desc: "Led the move from Solr/Google Search to OpenSearch with better relevance.",
+  },
+  {
+    icon: "cloud",
+    value: "Cloud",
+    title: "Kubernetes deployments",
+    desc: "Containerized services on AWS, orchestrated with Kubernetes & Helm.",
+  },
+  {
+    icon: "support",
+    value: "SRE",
+    title: "Production & on-call support",
+    desc: "Owned releases and stability with New Relic observability and monitoring.",
+  },
 ];
 
 // Grouped skill set, derived from the resume and current focus areas.
@@ -137,42 +153,66 @@ export const experience = [
   },
 ];
 
-// Featured projects — the highlights you want recruiters to see first.
+// Featured projects — structured as Problem / Solution / Impact + tech stack.
 export const projects = [
   {
     title: "Vertica → Snowflake Migration",
-    blurb:
-      "Migrated analytical data workloads from Vertica to Snowflake, building custom Ruby gems to query Snowflake via APIs and feed dashboards and reports.",
+    problem:
+      "Analytics ran on Vertica, which was costly to scale and awkward to integrate with newer reporting needs.",
+    solution:
+      "Migrated analytical workloads to Snowflake and built custom Ruby gems to query it over APIs, feeding dashboards and reports.",
+    impact:
+      "Faster, more scalable analytics with reusable internal libraries adopted across teams.",
     tags: ["Snowflake", "Ruby", "Data Migration", "APIs"],
   },
   {
     title: "Solr/Google → OpenSearch Migration",
-    blurb:
-      "Re-platformed search from legacy Solr/Google Search onto OpenSearch, improving relevance, control, and performance of search across the product.",
-    tags: ["OpenSearch", "Search", "Migration"],
+    problem:
+      "Search relied on legacy Solr/Google Search with limited relevance tuning and little operational control.",
+    solution:
+      "Re-platformed search onto OpenSearch, redesigning the indexing pipeline and query strategies.",
+    impact:
+      "Improved relevance and performance, plus full control over the search stack.",
+    tags: ["OpenSearch", "Search", "Migration", "Relevance"],
   },
   {
     title: "OpenSearch-Powered Job Search API",
-    blurb:
-      "Built a dedicated microservice exposing a fast, scalable job-search API backed by OpenSearch, with tuned queries and indexing for low-latency results.",
-    tags: ["OpenSearch", "Microservices", "Ruby on Rails", "Performance"],
-  },
-  {
-    title: "Kubernetes / Helm Deployment Pipeline",
-    blurb:
-      "Containerized services with Docker and orchestrated them on Kubernetes using Helm charts for repeatable, reliable deployments.",
-    tags: ["Kubernetes", "Helm", "Docker", "AWS"],
+    problem:
+      "The product needed fast, scalable job search that legacy search couldn't deliver.",
+    solution:
+      "Built a dedicated microservice exposing an OpenSearch-backed job-search API with tuned queries and indexing.",
+    impact:
+      "Low-latency, scalable search powering core product discovery features.",
+    tags: ["OpenSearch", "Microservices", "Rails", "Performance"],
   },
   {
     title: "Dependabot & Security Upgrades",
-    blurb:
-      "Drove dependency and security upgrades across Rails apps — proving exploitability, applying minimal fixes, and validating safely before release.",
+    problem:
+      "Rails apps had accumulated dependency and security debt with open CVEs.",
+    solution:
+      "Triaged Dependabot alerts, proved real exploitability, and applied minimal, validated fixes.",
+    impact:
+      "Reduced security exposure across applications without destabilizing production.",
     tags: ["Security", "Ruby on Rails", "CVE Remediation"],
   },
   {
-    title: "Production Deployment & Release Support",
-    blurb:
-      "Owned Rails release and deployment support with New Relic observability, acting on incidents and keeping production stable and performant.",
+    title: "Kubernetes / Helm Deployment Work",
+    problem:
+      "Services needed repeatable, reliable deployment and orchestration across environments.",
+    solution:
+      "Containerized services with Docker and orchestrated them on Kubernetes using Helm charts.",
+    impact:
+      "Consistent, repeatable deployments with easier scaling and rollbacks.",
+    tags: ["Kubernetes", "Helm", "Docker", "AWS"],
+  },
+  {
+    title: "Rails Production Deployment & Release Support",
+    problem:
+      "Releases needed careful coordination and fast incident response in production.",
+    solution:
+      "Owned Rails release/deploy support with New Relic observability and proactive monitoring.",
+    impact:
+      "Stable production with quick detection and resolution of issues.",
     tags: ["SRE", "New Relic", "On-call", "Release"],
   },
 ];

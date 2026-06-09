@@ -108,3 +108,38 @@ export const ArrowUpIcon = ({ size = 20 }) => (
     <path d="M12 19V5M5 12l7-7 7 7" />
   </svg>
 );
+
+export const SparkIcon = ({ size = 22 }) => (
+  <svg {...base(size)}>
+    <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" />
+  </svg>
+);
+
+export const SearchIcon = ({ size = 22 }) => (
+  <svg {...base(size)}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="m21 21-4.3-4.3" />
+  </svg>
+);
+
+export const CloudIcon = ({ size = 22 }) => (
+  <svg {...base(size)}>
+    <path d="M17.5 19a4.5 4.5 0 0 0 0-9h-1.3A7 7 0 1 0 5 17.6" />
+    <path d="M17.5 19H7" />
+  </svg>
+);
+
+export const SupportIcon = ({ size = 22 }) => (
+  <svg {...base(size)}>
+    <circle cx="12" cy="12" r="9" />
+    <circle cx="12" cy="12" r="3.2" />
+    <path d="m5.6 5.6 3.1 3.1M15.3 15.3l3.1 3.1M18.4 5.6l-3.1 3.1M8.7 15.3l-3.1 3.1" />
+  </svg>
+);
+
+export const FileTextIcon = ({ size = 22 }) => (
+  <svg {...base(size)}>
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+    <path d="M14 2v6h6M9 13h6M9 17h6M9 9h1" />
+  </svg>
+);

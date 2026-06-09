@@ -1,10 +1,11 @@
-import { profile, stats } from "../data";
+import { profile } from "../data";
 import { useTypewriter } from "../useTypewriter";
 import {
   GitHubIcon,
   LinkedInIcon,
   MailIcon,
-  DownloadIcon,
+  FileTextIcon,
+  CodeIcon,
   MapPinIcon,
   CheckIcon,
   ChevronDownIcon,
@@ -33,35 +34,40 @@ export default function Hero() {
             Open to senior backend / platform roles
           </span>
 
-          <h1 className="animate-in" style={{ "--d": "0.15s" }}>
-            Hi, I'm <span className="accent">{profile.name}</span>
+          <p className="hero-eyebrow animate-in" style={{ "--d": "0.12s" }}>
+            Hi, I'm <strong>{profile.name}</strong> — {profile.role}
+          </p>
+
+          <h1 className="animate-in" style={{ "--d": "0.2s" }}>
+            Building scalable <span className="accent">Rails platforms</span>,{" "}
+            <span className="accent">search systems</span>, and production-ready{" "}
+            <span className="accent">cloud solutions</span>.
           </h1>
 
-          {/* Typing effect cycles through roles/skills */}
-          <p className="hero-role animate-in" style={{ "--d": "0.25s" }}>
+          {/* Typing effect cycles through core skills */}
+          <p className="hero-role animate-in" style={{ "--d": "0.3s" }}>
+            <span className="hero-role-label">Specializing in</span>
             <span className="typed">{typed}</span>
             <span className="type-cursor" aria-hidden="true" />
           </p>
 
-          <p className="hero-tagline animate-in" style={{ "--d": "0.35s" }}>
+          <p className="hero-tagline animate-in" style={{ "--d": "0.4s" }}>
             {profile.tagline}
           </p>
 
-          <div className="hero-cta animate-in" style={{ "--d": "0.45s" }}>
-            <a className="btn btn-primary" href="#contact">
-              <MailIcon size={18} /> Get in touch
+          <div className="hero-cta animate-in" style={{ "--d": "0.5s" }}>
+            <a className="btn btn-primary" href="#projects">
+              <CodeIcon size={18} /> View Projects
             </a>
-            <a
-              className="btn btn-ghost"
-              href={profile.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <DownloadIcon size={18} /> Download résumé
+            <a className="btn btn-ghost" href="#resume">
+              <FileTextIcon size={18} /> View Resume
+            </a>
+            <a className="btn btn-ghost" href="#contact">
+              <MailIcon size={18} /> Contact Me
             </a>
           </div>
 
-          <div className="hero-socials animate-in" style={{ "--d": "0.55s" }}>
+          <div className="hero-socials animate-in" style={{ "--d": "0.6s" }}>
             <a
               className="icon-btn"
               href={profile.social.github}
@@ -92,7 +98,7 @@ export default function Hero() {
 
         <aside
           className="hero-card glass animate-in"
-          style={{ "--d": "0.4s" }}
+          style={{ "--d": "0.45s" }}
           aria-label="Profile summary"
         >
           <div className="hero-avatar">{initials}</div>
@@ -110,23 +116,8 @@ export default function Hero() {
         </aside>
       </div>
 
-      <div className="container">
-        <div className="stats">
-          {stats.map((s, i) => (
-            <div
-              className="stat glass reveal"
-              style={{ transitionDelay: `${i * 0.08}s` }}
-              key={s.label}
-            >
-              <div className="stat-value">{s.value}</div>
-              <div className="stat-label">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Scroll indicator */}
-      <a href="#about" className="scroll-indicator" aria-label="Scroll to content">
+      <a href="#achievements" className="scroll-indicator" aria-label="Scroll to content">
         <span className="scroll-mouse">
           <span className="scroll-wheel" />
         </span>

@@ -509,9 +509,21 @@ ul {
   50% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
 }
 
-.hero h1 {
-  font-size: clamp(2.4rem, 6.2vw, 3.8rem);
+.hero-eyebrow {
+  font-size: 0.98rem;
+  color: var(--text-soft);
+  margin-bottom: 14px;
+}
+
+.hero-eyebrow strong {
+  color: var(--text);
   font-weight: 700;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.12;
 }
 
 .hero h1 .accent {
@@ -528,8 +540,17 @@ ul {
   font-size: clamp(1.1rem, 2.6vw, 1.45rem);
   font-weight: 600;
   color: var(--accent-strong);
-  margin-top: 14px;
+  margin-top: 18px;
   min-height: 1.8em;
+  flex-wrap: wrap;
+}
+
+.hero-role-label {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-right: 10px;
 }
 
 .type-cursor {
@@ -674,30 +695,45 @@ ul {
 }
 
 /* ============================================================
-   Stats strip
+   Achievements / stats cards
    ============================================================ */
-.stats {
+.achievements-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 56px;
+  gap: 18px;
 }
 
-.stat {
+.achievement-card {
   border-radius: var(--radius);
-  padding: 24px;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 26px 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.stat:hover {
-  transform: translateY(-4px);
+.achievement-card:hover {
+  transform: translateY(-5px);
   box-shadow: var(--shadow);
+  border-color: var(--accent);
 }
 
-.stat-value {
+.achievement-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  margin-bottom: 16px;
+  transition: transform 0.25s ease;
+}
+
+.achievement-card:hover .achievement-icon {
+  transform: scale(1.1) rotate(-6deg);
+}
+
+.achievement-value {
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   background: linear-gradient(120deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
@@ -705,15 +741,28 @@ ul {
   color: transparent;
 }
 
-.stat-label {
-  margin-top: 4px;
-  font-size: 0.85rem;
-  color: var(--text-muted);
+.achievement-title {
+  margin-top: 2px;
+  font-weight: 600;
+  font-size: 0.98rem;
 }
 
-@media (max-width: 620px) {
-  .stats {
+.achievement-desc {
+  margin-top: 8px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .achievements-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .achievements-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -947,7 +996,7 @@ ul {
    ============================================================ */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 22px;
 }
 
@@ -983,15 +1032,22 @@ ul {
   transform: scaleX(1);
 }
 
+.project-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
 .project-icon {
   width: 46px;
   height: 46px;
+  flex-shrink: 0;
   border-radius: 12px;
   display: grid;
   place-items: center;
   background: var(--accent-soft);
   color: var(--accent-strong);
-  margin-bottom: 16px;
   transition: transform 0.28s ease;
 }
 
@@ -1003,15 +1059,33 @@ ul {
   font-size: 1.14rem;
 }
 
-.project-card p {
-  margin-top: 10px;
-  color: var(--text-soft);
-  font-size: 0.94rem;
+/* Problem / Solution / Impact rows */
+.project-facets {
+  margin: 0;
+  display: grid;
+  gap: 12px;
   flex-grow: 1;
 }
 
+.project-facet dt {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  margin-bottom: 3px;
+}
+
+.project-facet dd {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
 .project-tags {
-  margin-top: 18px;
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
@@ -1044,47 +1118,74 @@ ul {
 }
 
 /* ============================================================
-   Resume
+   Resume — preview thumbnail + actions
    ============================================================ */
-.resume-card {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
+.resume-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
   align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  background: linear-gradient(120deg, var(--accent), var(--accent-2));
-  border-radius: var(--radius);
-  padding: 44px;
-  color: #fff;
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
 }
 
-.resume-card::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 65%);
-}
-
-.resume-card > * {
+.resume-preview {
   position: relative;
-  z-index: 1;
+  display: block;
+  border-radius: var(--radius);
+  padding: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.resume-card h2 {
-  font-size: 1.7rem;
+.resume-preview img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.resume-preview-overlay {
+  position: absolute;
+  inset: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
   color: #fff;
+  background: linear-gradient(0deg, rgba(2, 8, 23, 0.55), rgba(2, 8, 23, 0.1));
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
-.resume-card p {
-  margin-top: 8px;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 440px;
+.resume-preview:hover {
+  transform: translateY(-6px) rotate(-0.5deg);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+}
+
+.resume-preview:hover .resume-preview-overlay,
+.resume-preview:focus-visible .resume-preview-overlay {
+  opacity: 1;
+}
+
+.resume-highlights {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.resume-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: var(--text-soft);
+}
+
+.resume-highlights svg {
+  flex-shrink: 0;
+  color: var(--accent);
 }
 
 .resume-actions {
@@ -1093,22 +1194,19 @@ ul {
   gap: 14px;
 }
 
-.resume .btn-primary {
-  background: #fff;
-  color: var(--accent-strong);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-}
-
-.resume .btn-ghost {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.resume .btn-ghost:hover {
-  border-color: #fff;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.16);
+@media (max-width: 720px) {
+  .resume-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    justify-items: center;
+    text-align: center;
+  }
+  .resume-preview {
+    max-width: 280px;
+  }
+  .resume-highlights li {
+    justify-content: center;
+  }
 }
 
 /* ============================================================
