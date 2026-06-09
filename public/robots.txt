@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nitesh-jobvite.github.io/sitemap.xml

@@ -11,7 +11,9 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import AnimatedBackground from "./components/AnimatedBackground";
 import BackToTop from "./components/BackToTop";
+import CaseStudy from "./components/CaseStudy";
 import { useReveal } from "./useReveal";
+import { useHashRoute, caseSlugFromRoute } from "./useHashRoute";
 
 // Resolve the initial theme: saved preference → dark (the premium default).
 function getInitialTheme() {
@@ -20,8 +22,25 @@ function getInitialTheme() {
   return "dark";
 }
 
+function Home() {
+  return (
+    <main>
+      <Hero />
+      <Achievements />
+      <About />
+      <Skills />
+      <Experience />
+      <Projects />
+      <Resume />
+      <Contact />
+    </main>
+  );
+}
+
 export default function App() {
   const [theme, setTheme] = useState(getInitialTheme);
+  const route = useHashRoute();
+  const caseSlug = caseSlugFromRoute(route);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -31,22 +50,14 @@ export default function App() {
   const toggleTheme = () =>
     setTheme((t) => (t === "dark" ? "light" : "dark"));
 
-  useReveal();
+  // Re-run scroll-reveal whenever the route changes (new content mounts).
+  useReveal(route);
 
   return (
     <>
       <AnimatedBackground />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <main>
-        <Hero />
-        <Achievements />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Resume />
-        <Contact />
-      </main>
+      {caseSlug ? <CaseStudy slug={caseSlug} /> : <Home />}
       <Footer />
       <BackToTop />
     </>

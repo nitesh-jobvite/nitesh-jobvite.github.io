@@ -109,6 +109,18 @@ export const ArrowUpIcon = ({ size = 20 }) => (
   </svg>
 );
 
+export const ArrowRightIcon = ({ size = 18 }) => (
+  <svg {...base(size)}>
+    <path d="M5 12h14M13 5l7 7-7 7" />
+  </svg>
+);
+
+export const ArrowLeftIcon = ({ size = 18 }) => (
+  <svg {...base(size)}>
+    <path d="M19 12H5M11 5l-7 7 7 7" />
+  </svg>
+);
+
 export const SparkIcon = ({ size = 22 }) => (
   <svg {...base(size)}>
     <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" />

@@ -1,5 +1,5 @@
 import { projects } from "../data";
-import { CodeIcon } from "../icons";
+import { CodeIcon, ArrowRightIcon } from "../icons";
 
 // Problem / Solution / Impact rows rendered per project.
 const facets = [
@@ -51,6 +51,14 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
+
+              <a
+                className="project-link"
+                href={`#/case/${p.slug}`}
+                aria-label={`Read the ${p.title} case study`}
+              >
+                Read case study <ArrowRightIcon size={16} />
+              </a>
             </article>
           ))}
         </div>

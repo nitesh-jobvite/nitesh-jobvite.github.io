@@ -156,6 +156,7 @@ export const experience = [
 // Featured projects — structured as Problem / Solution / Impact + tech stack.
 export const projects = [
   {
+    slug: "vertica-snowflake",
     title: "Vertica → Snowflake Migration",
     problem:
       "Analytics ran on Vertica, which was costly to scale and awkward to integrate with newer reporting needs.",
@@ -166,6 +167,7 @@ export const projects = [
     tags: ["Snowflake", "Ruby", "Data Migration", "APIs"],
   },
   {
+    slug: "opensearch-migration",
     title: "Solr/Google → OpenSearch Migration",
     problem:
       "Search relied on legacy Solr/Google Search with limited relevance tuning and little operational control.",
@@ -176,6 +178,7 @@ export const projects = [
     tags: ["OpenSearch", "Search", "Migration", "Relevance"],
   },
   {
+    slug: "job-search-api",
     title: "OpenSearch-Powered Job Search API",
     problem:
       "The product needed fast, scalable job search that legacy search couldn't deliver.",
@@ -186,6 +189,7 @@ export const projects = [
     tags: ["OpenSearch", "Microservices", "Rails", "Performance"],
   },
   {
+    slug: "security-upgrades",
     title: "Dependabot & Security Upgrades",
     problem:
       "Rails apps had accumulated dependency and security debt with open CVEs.",
@@ -196,6 +200,7 @@ export const projects = [
     tags: ["Security", "Ruby on Rails", "CVE Remediation"],
   },
   {
+    slug: "kubernetes-helm",
     title: "Kubernetes / Helm Deployment Work",
     problem:
       "Services needed repeatable, reliable deployment and orchestration across environments.",
@@ -206,6 +211,7 @@ export const projects = [
     tags: ["Kubernetes", "Helm", "Docker", "AWS"],
   },
   {
+    slug: "rails-production-support",
     title: "Rails Production Deployment & Release Support",
     problem:
       "Releases needed careful coordination and fast incident response in production.",
