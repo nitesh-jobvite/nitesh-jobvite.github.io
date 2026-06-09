@@ -13,12 +13,20 @@ export default function Skills() {
         </div>
 
         <div className="skills-grid">
-          {skillGroups.map((group) => (
-            <div className="skill-card reveal" key={group.title}>
+          {skillGroups.map((group, gi) => (
+            <div
+              className="skill-card glass reveal"
+              style={{ transitionDelay: `${gi * 0.08}s` }}
+              key={group.title}
+            >
               <h3>{group.title}</h3>
               <div className="skill-tags">
-                {group.skills.map((s) => (
-                  <span className="tag" key={s}>
+                {group.skills.map((s, si) => (
+                  <span
+                    className="tag"
+                    style={{ "--ti": si }}
+                    key={s}
+                  >
                     {s}
                   </span>
                 ))}

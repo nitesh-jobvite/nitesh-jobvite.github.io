@@ -42,7 +42,7 @@ export default function About() {
 
           <div className="about-highlights reveal">
             {highlights.map((h) => (
-              <div className="about-highlight" key={h.title}>
+              <div className="about-highlight glass" key={h.title}>
                 {h.icon}
                 <div>
                   <strong>{h.title}</strong>

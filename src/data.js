@@ -8,6 +8,14 @@ export const profile = {
     "I build reliable, high-performance backend systems — Ruby on Rails, search platforms, and cloud-native infrastructure on AWS & Kubernetes.",
   summary:
     "Senior software engineer with 9+ years of experience shipping clean, efficient, and maintainable backend systems. I specialize in Ruby on Rails, search infrastructure (OpenSearch), and cloud-native deployments on AWS and Kubernetes. I care about the full development lifecycle — strong test coverage, observability, performance, and keeping production healthy.",
+  // Phrases cycled by the hero typing effect.
+  roles: [
+    "Senior Software Engineer",
+    "Ruby on Rails Specialist",
+    "OpenSearch & Search Platforms",
+    "Cloud Native — AWS · K8s · Helm",
+    "SRE / On-call Engineer",
+  ],
   location: "Zirakpur, Punjab, India",
   email: "me.nkj7@gmail.com",
   phone: "+91-9810354424",

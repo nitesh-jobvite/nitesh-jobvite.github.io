@@ -96,3 +96,15 @@ export const CodeIcon = ({ size = 22 }) => (
     <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
   </svg>
 );
+
+export const ChevronDownIcon = ({ size = 22 }) => (
+  <svg {...base(size)}>
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+);
+
+export const ArrowUpIcon = ({ size = 20 }) => (
+  <svg {...base(size)}>
+    <path d="M12 19V5M5 12l7-7 7 7" />
+  </svg>
+);

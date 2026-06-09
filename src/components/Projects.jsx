@@ -15,8 +15,12 @@ export default function Projects() {
         </div>
 
         <div className="projects-grid">
-          {projects.map((p) => (
-            <article className="project-card reveal" key={p.title}>
+          {projects.map((p, i) => (
+            <article
+              className="project-card glass reveal"
+              style={{ transitionDelay: `${(i % 3) * 0.08}s` }}
+              key={p.title}
+            >
               <div className="project-icon">
                 <CodeIcon size={22} />
               </div>

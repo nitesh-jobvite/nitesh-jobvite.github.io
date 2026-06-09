@@ -8,15 +8,15 @@ import Projects from "./components/Projects";
 import Resume from "./components/Resume";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import AnimatedBackground from "./components/AnimatedBackground";
+import BackToTop from "./components/BackToTop";
 import { useReveal } from "./useReveal";
 
-// Resolve the initial theme: saved preference → OS preference → light.
+// Resolve the initial theme: saved preference → dark (the premium default).
 function getInitialTheme() {
   const saved = localStorage.getItem("theme");
   if (saved === "light" || saved === "dark") return saved;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  return "dark";
 }
 
 export default function App() {
@@ -34,6 +34,7 @@ export default function App() {
 
   return (
     <>
+      <AnimatedBackground />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />
@@ -45,6 +46,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }

@@ -47,7 +47,8 @@ export default function Contact() {
         </div>
 
         <div className="contact-grid">
-          {channels.map((c) => {
+          {channels.map((c, i) => {
+            const delay = { transitionDelay: `${i * 0.08}s` };
             const inner = (
               <>
                 <span className="contact-icon">{c.icon}</span>
@@ -60,7 +61,8 @@ export default function Contact() {
             );
             return c.href ? (
               <a
-                className="contact-card reveal"
+                className="contact-card glass reveal"
+                style={delay}
                 key={c.label}
                 href={c.href}
                 target={c.href.startsWith("http") ? "_blank" : undefined}
@@ -69,7 +71,7 @@ export default function Contact() {
                 {inner}
               </a>
             ) : (
-              <div className="contact-card reveal" key={c.label}>
+              <div className="contact-card glass reveal" style={delay} key={c.label}>
                 {inner}
               </div>
             );
