@@ -39,7 +39,7 @@
   --shadow-lg: 0 18px 50px rgba(15, 23, 42, 0.14);
   --radius: 16px;
   --radius-sm: 10px;
-  --maxw: 1400px;
+  --maxw: 1800px;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-display: "Space Grotesk", var(--font-sans);
 }
