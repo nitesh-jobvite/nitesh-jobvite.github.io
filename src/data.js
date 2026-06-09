@@ -26,7 +26,7 @@ export const profile = {
 export const achievements = [
   {
     icon: "spark",
-    value: "5+ Years",
+    value: "9+ Years",
     title: "Engineering experience",
     desc: "Shipping and maintaining production Ruby on Rails systems at scale.",
   },
