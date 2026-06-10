@@ -1,5 +1,4 @@
 import { profile } from "../data";
-import SectionHeader from "./SectionHeader";
 import {
   MailIcon,
   PhoneIcon,
@@ -38,12 +37,14 @@ export default function Contact() {
   return (
     <section id="contact" className="section">
       <div className="container">
-        <SectionHeader
-          number="06"
-          eyebrow="Contact"
-          title="Let's work together"
-          sub="I'm open to senior backend, platform, and SRE-leaning roles. The fastest way to reach me is email."
-        />
+        <div className="section-head reveal">
+          <span className="section-eyebrow">Contact</span>
+          <h2 className="section-title">Let's work together</h2>
+          <p className="section-sub">
+            I'm open to senior backend, platform, and SRE-leaning roles. The
+            fastest way to reach me is email.
+          </p>
+        </div>
 
         <div className="contact-grid">
           {channels.map((c, i) => {

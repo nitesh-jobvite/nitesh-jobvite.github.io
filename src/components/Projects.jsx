@@ -1,5 +1,4 @@
 import { projects } from "../data";
-import SectionHeader from "./SectionHeader";
 import { CodeIcon, ArrowRightIcon } from "../icons";
 
 // Problem / Solution / Impact rows rendered per project.
@@ -13,12 +12,14 @@ export default function Projects() {
   return (
     <section id="projects" className="section">
       <div className="container">
-        <SectionHeader
-          number="04"
-          eyebrow="Projects"
-          title="Selected work"
-          sub="Migrations, search platforms, and infrastructure work I've led or driven — framed by the problem, what I built, and the impact."
-        />
+        <div className="section-head reveal">
+          <span className="section-eyebrow">Projects</span>
+          <h2 className="section-title">Selected work</h2>
+          <p className="section-sub">
+            Migrations, search platforms, and infrastructure work I've led or
+            driven — framed by the problem, what I built, and the impact.
+          </p>
+        </div>
 
         <div className="projects-grid">
           {projects.map((p, i) => (

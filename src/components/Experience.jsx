@@ -1,16 +1,17 @@
 import { experience } from "../data";
-import SectionHeader from "./SectionHeader";
 
 export default function Experience() {
   return (
     <section id="experience" className="section">
       <div className="container">
-        <SectionHeader
-          number="03"
-          eyebrow="Experience"
-          title="Where I've worked"
-          sub="9+ years across product engineering, platform work, and production support."
-        />
+        <div className="section-head reveal">
+          <span className="section-eyebrow">Experience</span>
+          <h2 className="section-title">Where I've worked</h2>
+          <p className="section-sub">
+            9+ years across product engineering, platform work, and production
+            support.
+          </p>
+        </div>
 
         <div className="timeline">
           {experience.map((job) => (
