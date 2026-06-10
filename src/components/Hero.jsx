@@ -1,5 +1,6 @@
 import { profile } from "../data";
 import { useTypewriter } from "../useTypewriter";
+import RevealText from "./RevealText";
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -38,10 +39,17 @@ export default function Hero() {
             Hi, I'm <strong>{profile.name}</strong> — {profile.role}
           </p>
 
-          <h1 className="animate-in" style={{ "--d": "0.2s" }}>
-            Building scalable <span className="accent">Rails platforms</span>,{" "}
-            <span className="accent">search systems</span>, and production-ready{" "}
-            <span className="accent">cloud solutions</span>.
+          <h1 className="hero-title">
+            <RevealText
+              onLoad
+              segments={[
+                { text: "Building scalable" },
+                { text: "Rails platforms,", accent: true },
+                { text: "search systems,", accent: true },
+                { text: "and production-ready" },
+                { text: "cloud solutions.", accent: true },
+              ]}
+            />
           </h1>
 
           {/* Typing effect cycles through core skills */}

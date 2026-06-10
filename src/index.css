@@ -20,20 +20,17 @@
   --glass-bg: rgba(255, 255, 255, 0.62);
   --glass-border: rgba(15, 23, 42, 0.08);
 
-  /* Animated background */
-  --bg-gradient: radial-gradient(
-      1000px 700px at 8% -10%,
-      rgba(2, 132, 199, 0.12),
-      transparent 55%
-    ),
-    radial-gradient(900px 650px at 100% 0%, rgba(99, 102, 241, 0.12), transparent 55%),
-    linear-gradient(180deg, #f7faff, #eef2f9);
-  --grid-line: rgba(15, 23, 42, 0.05);
-  --blob-1: rgba(2, 132, 199, 0.4);
-  --blob-2: rgba(99, 102, 241, 0.35);
-  --blob-3: rgba(6, 182, 212, 0.32);
-  --blob-blur: 70px;
-  --blob-opacity: 0.55;
+  /* Cinematic background */
+  --bg-base: linear-gradient(180deg, #f7faff, #eef2f9);
+  --glow-1: rgba(2, 132, 199, 0.18);
+  --glow-2: rgba(99, 102, 241, 0.16);
+  --glow-opacity: 0.7;
+  --vignette: radial-gradient(
+    ellipse 110% 80% at 50% 28%,
+    transparent 45%,
+    rgba(15, 23, 42, 0.14) 100%
+  );
+  --grain-opacity: 0.035;
 
   --shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 10px 30px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 18px 50px rgba(15, 23, 42, 0.14);
@@ -60,19 +57,16 @@
   --glass-bg: rgba(255, 255, 255, 0.045);
   --glass-border: rgba(255, 255, 255, 0.1);
 
-  --bg-gradient: radial-gradient(
-      1200px 800px at 12% -10%,
-      rgba(56, 189, 248, 0.12),
-      transparent 60%
-    ),
-    radial-gradient(1000px 720px at 100% 0%, rgba(129, 140, 248, 0.13), transparent 55%),
-    linear-gradient(180deg, #0a1020 0%, #070b16 100%);
-  --grid-line: rgba(148, 163, 184, 0.06);
-  --blob-1: rgba(56, 189, 248, 0.55);
-  --blob-2: rgba(129, 140, 248, 0.5);
-  --blob-3: rgba(45, 212, 191, 0.42);
-  --blob-blur: 90px;
-  --blob-opacity: 0.6;
+  --bg-base: linear-gradient(180deg, #080c17 0%, #05070e 100%);
+  --glow-1: rgba(56, 189, 248, 0.22);
+  --glow-2: rgba(129, 140, 248, 0.2);
+  --glow-opacity: 0.65;
+  --vignette: radial-gradient(
+    ellipse 115% 85% at 50% 26%,
+    transparent 42%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  --grain-opacity: 0.05;
 
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 36px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6);
@@ -158,63 +152,80 @@ ul {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: var(--bg-gradient);
+  background: var(--bg-base);
   overflow: hidden;
 }
 
-.bg-grid {
+/* Large soft light sources that drift slowly — the cinematic "lighting" */
+.bg-glow {
   position: absolute;
-  inset: -2px;
-  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 75%);
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 75%);
-}
-
-.blob {
-  position: absolute;
-  width: 46vw;
-  max-width: 620px;
-  aspect-ratio: 1;
   border-radius: 50%;
-  filter: blur(var(--blob-blur));
-  opacity: var(--blob-opacity);
+  filter: blur(120px);
+  opacity: var(--glow-opacity);
   will-change: transform;
 }
 
-.blob-1 {
-  top: -8%;
-  left: -6%;
-  background: var(--blob-1);
-  animation: drift1 22s ease-in-out infinite;
+.bg-glow-1 {
+  width: 62vw;
+  height: 62vw;
+  max-width: 920px;
+  max-height: 920px;
+  top: -22%;
+  left: -12%;
+  background: radial-gradient(circle, var(--glow-1), transparent 70%);
+  animation: glow-drift-1 30s ease-in-out infinite;
 }
 
-.blob-2 {
-  top: 18%;
-  right: -10%;
-  background: var(--blob-2);
-  animation: drift2 26s ease-in-out infinite;
+.bg-glow-2 {
+  width: 56vw;
+  height: 56vw;
+  max-width: 840px;
+  max-height: 840px;
+  bottom: -26%;
+  right: -14%;
+  background: radial-gradient(circle, var(--glow-2), transparent 70%);
+  animation: glow-drift-2 38s ease-in-out infinite;
 }
 
-.blob-3 {
-  bottom: -12%;
-  left: 28%;
-  background: var(--blob-3);
-  animation: drift3 30s ease-in-out infinite;
+@keyframes glow-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(7%, 5%) scale(1.08); }
 }
 
-@keyframes drift1 {
+@keyframes glow-drift-2 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(60px, 40px) scale(1.1); }
+  50% { transform: translate(-6%, -4%) scale(1.06); }
 }
-@keyframes drift2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-50px, 60px) scale(1.08); }
+
+/* Vignette adds depth toward the edges */
+.bg-vignette {
+  position: absolute;
+  inset: 0;
+  background: var(--vignette);
 }
-@keyframes drift3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(40px, -50px) scale(1.12); }
+
+/* Faint film grain for a premium, cinematic texture */
+.bg-grain {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  filter: grayscale(1);
+  animation: grain-shift 8s steps(8) infinite;
+  pointer-events: none;
+}
+
+@keyframes grain-shift {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-4%, -3%); }
+  30% { transform: translate(3%, -5%); }
+  50% { transform: translate(-3%, 4%); }
+  70% { transform: translate(4%, 2%); }
+  90% { transform: translate(-2%, -2%); }
+  100% { transform: translate(0, 0); }
 }
 
 /* ============================================================
@@ -468,7 +479,11 @@ ul {
    ============================================================ */
 .hero {
   position: relative;
-  padding: 84px 0 56px;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 96px;
 }
 
 .hero-inner {
@@ -476,7 +491,7 @@ ul {
   grid-template-columns: 1.5fr 1fr;
   gap: 48px;
   align-items: center;
-  min-height: 60vh;
+  width: 100%;
 }
 
 .hero-status {
@@ -520,13 +535,16 @@ ul {
   font-weight: 700;
 }
 
-.hero h1 {
-  font-size: clamp(2.1rem, 5vw, 3.1rem);
+.hero h1,
+.hero-title {
+  font-size: clamp(2.3rem, 5.6vw, 3.8rem);
   font-weight: 700;
-  line-height: 1.12;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
-.hero h1 .accent {
+.hero h1 .accent,
+.rt-inner.accent {
   background: linear-gradient(120deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
   background-clip: text;
@@ -1345,16 +1363,60 @@ ul {
   }
 }
 
-/* Scroll-reveal — toggled by IntersectionObserver (see useReveal). */
+/* Scroll-reveal — toggled by IntersectionObserver (see useReveal).
+   Cinematic easing: a slower, smooth rise + subtle blur clearing. */
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(32px);
+  filter: blur(6px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s ease;
 }
 
 .reveal.visible {
   opacity: 1;
   transform: none;
+  filter: none;
+}
+
+/* ============================================================
+   Masked word-rise text reveal (RevealText)
+   ============================================================ */
+.rt {
+  display: inline;
+}
+
+.rt-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  /* explicit word gap (trailing whitespace is trimmed inside inline-block) */
+  margin-right: 0.26em;
+  /* bottom padding so descenders (g, y, p) aren't clipped by overflow */
+  padding-bottom: 0.16em;
+  margin-bottom: -0.16em;
+}
+
+.rt-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.7s ease;
+  transition-delay: calc(var(--i) * 0.05s);
+}
+
+.rt-in .rt-inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Accessibility: never leave text hidden when motion is reduced */
+@media (prefers-reduced-motion: reduce) {
+  .rt-inner {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 /* ============================================================
