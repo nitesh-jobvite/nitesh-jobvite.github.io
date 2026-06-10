@@ -1,16 +1,16 @@
 import { skillGroups } from "../data";
+import SectionHeader from "./SectionHeader";
 
 export default function Skills() {
   return (
     <section id="skills" className="section">
       <div className="container">
-        <div className="section-head reveal">
-          <span className="section-eyebrow">Skills</span>
-          <h2 className="section-title">Tools &amp; technologies</h2>
-          <p className="section-sub">
-            The stack I reach for to build, ship, and operate backend systems.
-          </p>
-        </div>
+        <SectionHeader
+          number="02"
+          eyebrow="Skills"
+          title="Tools & technologies"
+          sub="The stack I reach for to build, ship, and operate backend systems."
+        />
 
         <div className="skills-grid">
           {skillGroups.map((group, gi) => (

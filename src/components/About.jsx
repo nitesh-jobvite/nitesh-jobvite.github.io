@@ -1,4 +1,5 @@
 import { profile } from "../data";
+import SectionHeader from "./SectionHeader";
 import { CodeIcon, CheckIcon, MapPinIcon } from "../icons";
 
 const highlights = [
@@ -23,10 +24,7 @@ export default function About() {
   return (
     <section id="about" className="section">
       <div className="container">
-        <div className="section-head reveal">
-          <span className="section-eyebrow">About</span>
-          <h2 className="section-title">A bit about me</h2>
-        </div>
+        <SectionHeader number="01" eyebrow="About" title="A bit about me" />
 
         <div className="about-grid">
           <div className="about-text reveal">

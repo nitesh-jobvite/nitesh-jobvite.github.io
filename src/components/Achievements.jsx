@@ -1,4 +1,5 @@
 import { achievements } from "../data";
+import SectionHeader from "./SectionHeader";
 import { SparkIcon, SearchIcon, CloudIcon, SupportIcon } from "../icons";
 
 // Map the data `icon` keys to components (keeps data.js icon-free).
@@ -13,10 +14,7 @@ export default function Achievements() {
   return (
     <section id="achievements" className="section achievements">
       <div className="container">
-        <div className="section-head reveal">
-          <span className="section-eyebrow">Highlights</span>
-          <h2 className="section-title">What I bring to the table</h2>
-        </div>
+        <SectionHeader eyebrow="Highlights" title="What I bring to the table" />
 
         <div className="achievements-grid">
           {achievements.map((a, i) => {

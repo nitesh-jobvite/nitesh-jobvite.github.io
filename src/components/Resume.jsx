@@ -1,4 +1,5 @@
 import { profile } from "../data";
+import SectionHeader from "./SectionHeader";
 import { DownloadIcon, ExternalIcon, CheckIcon } from "../icons";
 
 const resumePreview = `${import.meta.env.BASE_URL}resume-preview.png`;
@@ -14,14 +15,12 @@ export default function Resume() {
   return (
     <section id="resume" className="section resume">
       <div className="container">
-        <div className="section-head reveal">
-          <span className="section-eyebrow">Résumé</span>
-          <h2 className="section-title">My résumé, at a glance</h2>
-          <p className="section-sub">
-            Preview the first page, or grab the full PDF for the complete work
-            history and details.
-          </p>
-        </div>
+        <SectionHeader
+          number="05"
+          eyebrow="Résumé"
+          title="My résumé, at a glance"
+          sub="Preview the first page, or grab the full PDF for the complete work history and details."
+        />
 
         <div className="resume-layout">
           {/* Preview card with a real thumbnail of the PDF's first page */}
