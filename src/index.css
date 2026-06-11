@@ -22,6 +22,7 @@
 
   /* Cinematic background */
   --bg-base: radial-gradient(125% 85% at 50% -5%, #ffffff 0%, #f1f5fb 45%, #e7eef7 100%);
+  --bg-image: none; /* light theme keeps the CSS gradient */
   --spot: rgba(2, 132, 199, 0.1);
   --glow-1: rgba(2, 132, 199, 0.18);
   --glow-2: rgba(99, 102, 241, 0.16);
@@ -60,11 +61,12 @@
   --glass-border: rgba(255, 255, 255, 0.1);
 
   --bg-base: radial-gradient(125% 85% at 50% -5%, #0c1322 0%, #070b14 48%, #04060c 100%);
+  --bg-image: url("/site-bg.jpg"); /* original generated cinematic image */
   --spot: rgba(120, 180, 255, 0.12);
   --glow-1: rgba(56, 189, 248, 0.22);
   --glow-2: rgba(129, 140, 248, 0.2);
   --glow-3: rgba(45, 212, 191, 0.16);
-  --glow-opacity: 0.65;
+  --glow-opacity: 0.4;
   --vignette: radial-gradient(
     ellipse 115% 85% at 50% 26%,
     transparent 42%,
@@ -162,7 +164,11 @@ ul {
 .bg-base {
   position: absolute;
   inset: 0;
-  background: var(--bg-base);
+  background-color: #05070c;
+  background-image: var(--bg-image), var(--bg-base);
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
 }
 
 /* Parallax wrappers — translate with scroll at their own --speed so layers
