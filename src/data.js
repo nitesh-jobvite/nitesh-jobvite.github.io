@@ -58,7 +58,7 @@ export const skillGroups = [
   },
   {
     title: "Search & Data",
-    skills: ["OpenSearch", "Snowflake", "Kafka", "ActiveRecord", "Vertica"],
+    skills: ["OpenSearch", "Elasticsearch", "Snowflake", "Kafka", "Redis", "ActiveRecord", "Vertica"],
   },
   {
     title: "Cloud & DevOps",
@@ -71,6 +71,7 @@ export const skillGroups = [
       "Background Jobs (Sidekiq)",
       "Performance Optimization",
       "New Relic / Observability",
+      "CI/CD",
       "SRE / On-call",
       "Production Support",
     ],
@@ -87,10 +88,13 @@ export const experience = [
     current: true,
     points: [
       "Led Ruby upgrades across multiple Rails applications (2.7 → 3.2) while protecting and growing test coverage.",
-      "Built custom internal gems to interface with Snowflake via APIs, powering dynamic dashboards and reports.",
       "Engineered a dedicated OpenSearch microservice to improve search functionality and query performance.",
+      "Built and maintained indexing and search APIs supporting advanced filtering, faceted search, and keyword search over high-volume data.",
+      "Built custom internal gems to interface with Snowflake via APIs, powering dynamic dashboards and reports.",
       "Containerized services with Docker and orchestrated deployments on Kubernetes using Helm.",
-      "Established monitoring with New Relic and drove production stability through proactive bug fixes.",
+      "Established monitoring and observability with New Relic for proactive issue detection and faster incident resolution.",
+      "Led remediation of critical and high-severity security vulnerabilities across repositories via dependency upgrades, risk assessment, and coordinated deployment.",
+      "Participated in on-call rotations, production incident management, and root-cause analysis across services.",
     ],
   },
   {
