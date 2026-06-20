@@ -9,7 +9,7 @@ export const profile = {
   tagline:
     "Senior Software Engineer focused on backend performance, search infrastructure, and reliable cloud-native delivery.",
   summary:
-    "Senior software engineer with 9+ years of experience shipping clean, efficient, and maintainable backend systems. I specialize in Ruby on Rails, search infrastructure (OpenSearch), and cloud-native deployments on AWS and Kubernetes. I care about the full development lifecycle — strong test coverage, observability, performance, and keeping production healthy.",
+    "Senior software engineer with 10+ years of experience shipping clean, efficient, and maintainable backend systems. I specialize in Ruby on Rails, search infrastructure (OpenSearch), and cloud-native deployments on AWS and Kubernetes. I care about the full development lifecycle — strong test coverage, observability, performance, and keeping production healthy.",
   // Phrases cycled by the hero typing effect.
   roles: ["Ruby on Rails", "OpenSearch", "Snowflake", "Kubernetes", "AWS"],
   location: "Zirakpur, Punjab, India",
@@ -26,7 +26,7 @@ export const profile = {
 export const achievements = [
   {
     icon: "spark",
-    value: "9+ Years",
+    value: "10+ Years",
     title: "Engineering experience",
     desc: "Shipping and maintaining production Ruby on Rails systems at scale.",
   },

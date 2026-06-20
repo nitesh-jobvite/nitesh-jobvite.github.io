@@ -1,5 +1,5 @@
 import { profile } from "../data";
-import { GitHubIcon, LinkedInIcon, MailIcon } from "../icons";
+import { GitHubIcon, LinkedInIcon } from "../icons";
 
 export default function Footer() {
   return (
@@ -26,9 +26,6 @@ export default function Footer() {
             aria-label="LinkedIn"
           >
             <LinkedInIcon size={18} />
-          </a>
-          <a className="icon-btn" href={`mailto:${profile.email}`} aria-label="Email">
-            <MailIcon size={18} />
           </a>
         </div>
       </div>

@@ -8,7 +8,7 @@ export default function Experience() {
           <span className="section-eyebrow">Experience</span>
           <h2 className="section-title">Where I've worked</h2>
           <p className="section-sub">
-            9+ years across product engineering, platform work, and production
+            10+ years across product engineering, platform work, and production
             support.
           </p>
         </div>

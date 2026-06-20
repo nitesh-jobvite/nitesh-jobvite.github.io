@@ -4,7 +4,7 @@ import { DownloadIcon, ExternalIcon, CheckIcon } from "../icons";
 const resumePreview = `${import.meta.env.BASE_URL}resume-preview.png`;
 
 const highlights = [
-  "9+ years across product engineering & support",
+  "10+ years across product engineering & support",
   "Ruby on Rails, OpenSearch, Snowflake",
   "AWS · Kubernetes · Helm · Docker",
   "Production support & SRE / on-call",

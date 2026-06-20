@@ -32,7 +32,7 @@ export default function About() {
           <div className="about-text reveal">
             <p>{profile.summary}</p>
             <p>
-              Over the past nine years I've grown from technical support into a
+              Over the past ten years I've grown from technical support into a
               senior engineering role — debugging production at scale, building
               search and data platforms, and owning releases end to end. I enjoy
               the unglamorous work that keeps systems healthy: clean code, good

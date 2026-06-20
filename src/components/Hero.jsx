@@ -86,13 +86,6 @@ export default function Hero() {
             >
               <LinkedInIcon />
             </a>
-            <a
-              className="icon-btn"
-              href={`mailto:${profile.email}`}
-              aria-label="Email"
-            >
-              <MailIcon />
-            </a>
           </div>
         </div>
 
